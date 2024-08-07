@@ -38,28 +38,28 @@
     // Stub method for addition
     public static int Add(int a, int b)
     {
-        // TODO: Implement this method
-        return 0;
+        int sum = a + b;
+        return sum;
     }
 
     // Stub method for subtraction
     public static int Subtract(int a, int b)
     {
-        // TODO: Implement this method
-        return 0;
+        int difference = a - b;
+        return difference;
     }
 
     // Stub method for multiplication
     public static int Multiply(int a, int b)
     {
-        // TODO: Implement this method
-        return 0;
+        int product = a * b;
+        return product;
     }
 
     // Stub method for division
     public static int Divide(int a, int b)
     {
-        // TODO: Implement this method
-        return 0;
+        int quotient = a / b;
+        return quotient;
     }
 }
