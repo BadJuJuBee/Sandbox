@@ -1,4 +1,7 @@
-﻿namespace Collections.App;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
+
+namespace Collections.App;
 
 public class Program
 {
@@ -37,44 +40,69 @@ public class Program
     {
         Random rand = new Random();
         int[] numbers = new int[length];
-        // TODO: Populate the array with random numbers between 1 and 100
+        for(int i = 0;i < length;i++)
+        {
+            var num = rand.Next();
+            numbers[i] = num;
+        }
         return numbers;
     }
 
     public static void PrintArray(int[] array)
     {
         // TODO: Print each element in the array
+        for(int i = 0;i < array.Length;i++)
+        {
+            Console.WriteLine(array[i]);
+        }
     }
 
     public static List<string> CreateNameList()
     {
         // TODO: Create a list of 5 names
-        List<string> names = new List<string>();
+        List<string> names = new List<string>
+        {
+            "Jan", "Charlie", "Lenore", "Harry", "Robert"
+        };
         return names;
     }
 
     public static void PrintList(List<string> list)
     {
         // TODO: Print each name in the list
+        foreach(var name in list)
+        {
+            Console.WriteLine(name);
+        }
     }
 
     public static Dictionary<string, int> CreateNameAgeDictionary()
     {
         // TODO: Create a dictionary of names and ages
-        Dictionary<string, int> nameAgeDictionary = new Dictionary<string, int>();
+        Dictionary<string, int> nameAgeDictionary = new Dictionary<string, int>
+        {
+        {"Billy Bob", 59},
+        {"Mary Jane", 51},
+        {"Jasmine Jones", 2},
+        {"Aladdin Jones", 3},
+        };
         return nameAgeDictionary;
     }
 
-    public static void PrintDictionary(Dictionary<string, int> dictionary)
+    public static void PrintDictionary(Dictionary<string, int> nameAgeDictionary)
     {
         // TODO: Print each key-value pair in the dictionary
+        foreach(var kvp in nameAgeDictionary)
+        {
+            Console.WriteLine($"{kvp.Key} is {kvp.Value}");
+        }
     }
 
-    public static KeyValuePair<string, int> FindOldestPerson(Dictionary<string, int> dictionary)
+    public static KeyValuePair<string, int> FindOldestPerson(Dictionary<string, int> nameAgeDictionary)
     {
-        string oldestName = null;
-        int maxAge = int.MinValue;
-
+        var maxKVP = nameAgeDictionary.MaxBy(kvp => kvp.Value);
+        var oldestName = maxKVP.Key;
+        var maxAge = maxKVP.Value;
         // TODO: Find the name and age of the oldest person in the dictionary
 
         return new KeyValuePair<string, int>(oldestName, maxAge);
@@ -83,6 +111,10 @@ public class Program
     public static double CalculateAverage(int[] numbers)
     {
         double sum = 0;
+        foreach(int number in numbers)
+        {
+            sum += number;
+        }
         // TODO: Calculate the sum of the numbers
         return sum / numbers.Length;
     }
